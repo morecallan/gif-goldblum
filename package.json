@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/morecallan/gif-goldblum/issues"
   },
-  "homepage": "https://github.com/morecallan/gif-goldblum#readme"
+  "homepage": "https://github.com/morecallan/gif-goldblum#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "express": "^4.14.0",
+    "got": "^6.5.0",
+    "request": "^2.75.0"
+  }
 }
