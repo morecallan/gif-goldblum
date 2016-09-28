@@ -1,0 +1,17 @@
+{
+  "name": "gif-goldblum",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Callan Morrison <callan.l.morrison@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/morecallan/gif-goldblum",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
