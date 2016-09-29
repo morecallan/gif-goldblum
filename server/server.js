@@ -2,13 +2,14 @@
 "use strict";
 
 //Setting Up App
-const Express = require('express');
+const express = require('express');
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
+const bodyParser = require('body-parser');
 
 //Parsing HTML req
-const got = require('got');
-
+// const got = require('got');
+const request = require('request');
 
 //// Public viewery ////
 app.use(express.static('client'))
@@ -16,29 +17,27 @@ app.use(express.static('client'))
 
 //// Interaction with requested website ////
 const { load } = require('cheerio')
-const { get } = require('request')
+//const { get } = require('request')
 
 //// Random Jeff Gif from scraper ////
-const giphyGenerator = require('./jeffGif');
+const {giphyGenerator} = require('./jeffGif');
 
 
-app.get('/:url', (req, res) => {
+
+
+
+app.get('/gif/:url', (req, res) => {
   const url = req.params.url;
+  console.log(url)
   //// Init Functionality for Requested Image Replace
-  got(url)
-    .then((response)=> {
-      console.log(response.body)
-      $ = load(response.body)
-      $('img').each(function(i, img){
-        $(img).attr('src', giphyGenerator())
-      })
-      $ = $.html()
-      res.send($)
+  request.get(`https://${url}`, (err, _, body) => {
+    let $ = load(body)
+    $('img').each(function(i, img){
+      $(img).attr('src', giphyGenerator())
     })
-    .catch((error) => {
-      console.log(error.response.body)
-    })
-  }
+    $ = $.html()
+    res.send($)
+  })
 })
 
 
