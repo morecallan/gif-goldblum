@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server/server.js",
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,14 @@
   "bugs": {
     "url": "https://github.com/morecallan/gif-goldblum/issues"
   },
-  "homepage": "https://github.com/morecallan/gif-goldblum#readme"
+  "homepage": "https://github.com/morecallan/gif-goldblum#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bower": "^1.7.9",
+    "cheerio": "^0.22.0",
+    "express": "^4.14.0",
+    "got": "^6.5.0",
+    "request": "^2.75.0",
+    "valid-url": "^1.0.9"
+  }
 }
