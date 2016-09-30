@@ -10,9 +10,7 @@ const bodyParser = require('body-parser');
 //Parsing HTML req
 // const got = require('got');
 const request = require('request');
-
 var validUrl = require('valid-url');
-
 
 const quickCheck = (suspect) => {
   return validUrl.isUri(suspect) ? true : false;
@@ -22,7 +20,6 @@ const checkRequest = (inputUrl) => {
 
   let prefixedInputUrl = `www.${inputUrl}`
 
-  console.log(prefixedInputUrl)
   return new Promise((resolve, reject) => {
       request.get(`${prefixedInputUrl}`, (err, _, body) => {
           if (!err) {
@@ -81,7 +78,6 @@ app.get('/gif/:url', (req, res) => {
   checkRequest(url)
     .then((correctUrl) => {
     let usableUrl = correctUrl
-    console.log(usableUrl)
     //// Init Functionality for Requested Image Replace
     request.get(usableUrl, (err, _, body) => {
       let $ = load(body)
