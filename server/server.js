@@ -67,14 +67,13 @@ app.use(express.static('client'))
 const { load } = require('cheerio')
 
 //// Random Jeff Gif from scraper ////
-const {giphyGenerator, jeffGetter} = require('./jeffGif');
+const {giphyGenerator} = require('./jeffGif');
 
 
 
 
 
 app.get('/gif/:url', (req, res) => {
-  jeffGetter();
   let url = req.params.url;
   checkRequest(url)
     .then((correctUrl) => {
