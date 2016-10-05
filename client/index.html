@@ -2,11 +2,15 @@
 <html>
   <head>
     <title>gif-goldblum</title>
+    <link rel="icon" href="./img/jeff-goldblum.png" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/styles/main.css">
   </head>
   <body>
+
     <div ng-app="gifGoldblum">
+
+      <!-- Start Navigation -->
       <nav ng-controller="MainCtrl" class="navbar navbar-default">
         <form ng-submit="submitUrl()" class="col-sm-12">
           <div class="row">
@@ -16,18 +20,26 @@
                 <input type="text" ng-model="url" class="input-lg col-sm-12" id="lgFormGroupInput" placeholder="reddit.com">
               </div>
               <div class="col-sm-2">
-                <button class="btn btn-primary" ng-click="submitUrl()">Jeff<img class="small-button-img"src='./img/jeff-goldblum.png'/>Gif-Ify</button>
+                <button class="btn btn-primary" ng-click="submitUrl()">Jeff<img class="small-button-img"src='./img/jeff-goldblum.png'/>-iffy</button>
               </div>
             </div>
           </form>
         </div>
       </nav>
+      <!-- End Navigation -->
 
 
+      <!-- Start Content -->
       <div class="container">
         <div ng-view></div>
       </div>
+      <!-- End Content -->
+
     </div>
+
+    <!-- Scripts Needed: Typing effect, angular and routing -->
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="lib/typed.js/dist/typed.min.js"></script>
     <script src="/lib/angular/angular.min.js"></script>
     <script src="/lib/angular-route/angular-route.min.js"></script>
     <script src="/app/app.js"></script>

@@ -19,6 +19,13 @@ angular
   .controller('MainCtrl', function ($scope, $rootScope, $location, $http) {
     let submissionUrl = "";
 
+    $(function(){
+        $(".greeting").typed({
+            strings: ["reddit.com", "usatoday.com", "github.com", "yoursite.com"],
+            typeSpeed: 20
+        });
+    });
+
     $scope.submitUrl = () => {
       submissionUrl = $scope.url;
 
