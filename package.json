@@ -2,11 +2,14 @@
   "name": "gif-goldblum",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
     "postinstall": "bower install"
+  },
+  "engines": {
+    "node": "6"
   },
   "repository": {
     "type": "git",

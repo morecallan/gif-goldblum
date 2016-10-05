@@ -84,6 +84,11 @@ app.get('/gif/:url', (req, res) => {
       $('img').each(function(i, img){
         $(img).attr('src', giphyGenerator())
       })
+      $('a').each(function(i, a){
+        var currentRef = $(a).attr('href');
+        console.log(currentRef)
+        $(a).attr('href', `http://localhost:3000/#/gif/${currentRef}`)
+      })
       $ = $.html()
       res.send($)
     })
@@ -91,6 +96,9 @@ app.get('/gif/:url', (req, res) => {
   .catch(console.error)
 })
 
+app.on(request, (req, res) => {
+  console.log("request")
+})
 
 //// You know, like, listen on the port or something something darkside
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
