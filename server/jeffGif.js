@@ -8,23 +8,13 @@ let gifGoldblums = ["https://media.giphy.com/media/l0MYCzCMjRDsgqrUk/giphy.gif",
 
 // Jeff Gif Scraper
 const jeffGetter = () => {
-  get(`http://giphy.com/search/jeff-goldblum`, (err, _, body)=> {
-    let count = 0;
-    const $ = load(body)
-    if ($.contentLoaded) {
-      console.log("true!")
-    }
-    // setTimeout(()=> {
-    //
-    //   console.log($('#gif-results').find("img").length)
-    //   $('img.jOQ31oyCahmByl_HZ0hoR').each(function(i, gif){
-    //
-    //     console.log(count)
-    //     count++
-    //       console.log($(gif).src())
-    //       gifGoldblums.push($(img).attr('src'))
-    //   })
-    // }, 2000)
+  get(`https://www.tumblr.com/search/jeff+goldblum+gif`, (err, _, body)=> {
+      const $ = load(body)
+      $(".photo").each((i, gif) => {
+        if($(gif).attr("src").toString().includes("http")){
+          gifGoldblums.push($(gif).attr("src"))
+        }
+      })
   })
 }
 
