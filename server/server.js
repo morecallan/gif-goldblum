@@ -67,13 +67,14 @@ app.use(express.static('client'))
 const { load } = require('cheerio')
 
 //// Random Jeff Gif from scraper ////
-const {giphyGenerator} = require('./jeffGif');
+const {giphyGenerator, jeffGetter} = require('./jeffGif');
 
 
 
 
 
 app.get('/gif/:url', (req, res) => {
+  jeffGetter();
   let url = req.params.url;
   checkRequest(url)
     .then((correctUrl) => {
@@ -86,7 +87,6 @@ app.get('/gif/:url', (req, res) => {
       })
       $('a').each(function(i, a){
         var currentRef = $(a).attr('href');
-        console.log(currentRef)
         $(a).attr('href', `http://localhost:3000/#/gif/${currentRef}`)
       })
       $ = $.html()
@@ -96,9 +96,9 @@ app.get('/gif/:url', (req, res) => {
   .catch(console.error)
 })
 
-app.on(request, (req, res) => {
-  console.log("request")
-})
+// app.on(request, (req, res) => {
+//   console.log("request")
+// })
 
 //// You know, like, listen on the port or something something darkside
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
