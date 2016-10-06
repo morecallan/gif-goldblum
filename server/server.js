@@ -85,7 +85,7 @@ app.get('/gif/:url', (req, res) => {
     .then((correctUrl) => {
     let usableUrl = correctUrl
     //// Init Functionality for Requested Image Replace
-    request.get(usableUrl, (err, _, body) => {
+    request.get(usableUrl, (err, response, body) => {
       let $ = load(body)
       $('img').each(function(i, img){
         $(img).attr('src', giphyGenerator())
@@ -101,9 +101,6 @@ app.get('/gif/:url', (req, res) => {
   .catch(console.error)
 })
 
-// app.on(request, (req, res) => {
-//   console.log("request")
-// })
 
 //// You know, like, listen on the port or something something darkside
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
