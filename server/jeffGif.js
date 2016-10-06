@@ -11,7 +11,7 @@ const jeffGetter = () => {
   get(`https://www.tumblr.com/search/jeff+goldblum+gif`, (err, _, body)=> {
       const $ = load(body)
       $(".photo").each((i, gif) => {
-        if($(gif).attr("src").toString().includes("http")){
+        if($(gif).attr("src").toString().includes("https")){
           gifGoldblums.push($(gif).attr("src"))
         }
       })
