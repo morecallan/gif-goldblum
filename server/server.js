@@ -92,7 +92,7 @@ app.get('/gif/:url', (req, res) => {
       })
       $('a').each(function(i, a){
         var currentRef = $(a).attr('href');
-        $(a).attr('href', `http://localhost:3000/#/gif/${currentRef}`)
+        $(a).attr('href', `https://gif-goldblum.herokuapp.com/#/gif/${currentRef}`)
       })
       $ = $.html()
       res.send($)
